@@ -1,0 +1,27 @@
+.brightness-filter {
+   filter: brightness(1.5) invert(0.7) blur(2px);
+}
+
+.grayscale-filter {
+   filter: grayscale(0.8);
+}
+
+.saturate-filter {
+   filter: saturate(250%);
+}
+
+.hue-rotate-filter {
+   filter: hue-rotate(-90deg);
+}
+
+.drop-shadow-filter {
+   filter: drop-shadow(5px 15px 3px rgba(0, 0, 5, 0.8));
+}
+
+.blur-filter {
+   filter: blur(7px);
+}
+
+.sepia-filter {
+   filter: sepia(100%);
+}

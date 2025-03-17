@@ -1,0 +1,192 @@
+/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+*/
+
+@keyframes red-main {
+  from {
+    fill: none;
+  }
+
+  to {
+    fill: red;
+  }
+}
+
+@keyframes contour {
+ from {
+   fill: black;
+ }
+
+ to {
+   fill: red;
+ }
+}
+
+@keyframes scale {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 1.25;
+  }
+}
+
+@keyframes sparks {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.like-icon:hover .core {
+  fill: var(--contur-heart);
+  transition: all;
+  transform-origin: center;
+  transition-duration: 1.5s;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contur-heart);
+  transition: all;
+  transform-origin: center;
+  transition-duration: 1.5s;
+  transition-delay: 0.2s;
+}
+
+.like-icon:not(:hover) .core, 
+.like-icon:not(:hover) .main-body {
+  transition-duration: 0.3s;
+}
+
+
+.like-icon:active .main-body {
+   fill: red;
+}
+
+.like-icon:active .core {
+   fill: red;
+}
+
+ .like-icon.is-liked .core {
+   transform-origin: center;
+   animation: core 0.3s ease-in-out forwards;
+ }
+
+ .like-icon.is-liked .main-body {
+   transform-origin: center;
+   animation: red-main 0.5s ease-in-out forwards;
+   animation-delay: .05s;
+ }
+
+.like-icon.is-liked .contour {
+  transform-origin: center;
+  animation: contour 0.5s ease-in-out forwards;
+  animation-delay: .1s;
+}
+
+ .like-icon.is-liked {
+   transform-origin: center;
+   animation: scale 0.5s ease-in-out;
+   animation-delay: .15s;
+ }
+
+ .like-icon.is-liked .sparks {
+   transform-origin: center;
+   animation: sparks 0.5s alternate ease-in-out;
+   animation-delay: .2s;
+ }
+ 
+ @keyframes black-heart {
+   from {
+     fill: none;
+   }
+ 
+   to {
+     fill: var(--contur-heart);
+     }
+   }
+ 
+ 
+   @keyframes core {
+     from {
+       fill: #fff;
+     }    
+ 
+     to {
+       fill: red;
+     }
+   }
+
+.button:focus {
+  outline: 0;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 #000;
+  transition: 0.3s ease;
+}
+
+.button:hover .button__text {
+  transition-delay: 0.2s;
+}
+
+.card__icon-button:focus {
+  outline: 0;
+  /* border: 0; */
+}
+
+.card__like-button:focus {
+  outline: 0;
+}
+
+.card__icon-button:focus-visible:not(.focus-border) {
+  border: 2px solid #000;
+  /* height: 100%; */
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+.focus-border:focus-visible {
+  border: 2px solid #000;
+  transition: 0.3s ease;
+}
+
+.button, span {
+  position: relative;
+}
+
+.button::after {  
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::after { 
+  transform: scaleX(1);
+}
+
+.button__text {
+  position: relative;
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+.decoration-svg__dialog {
+  mix-blend-mode: difference;
+  z-index: 2;
+}
